@@ -53,7 +53,7 @@ function createPost(item) {
   mainWrapper.appendChild(divWrapper);
 
   divWrapper.addEventListener("click", function (event) {
-    let id = event.target.getAttribute("data-id");
+    let id = divWrapper.getAttribute("data-id");
     openOverlay(id);
   });
 
@@ -103,12 +103,14 @@ addButton.addEventListener("click", function () {
 });
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault;
+  event.preventDefault();
 
   let formData = {
     title: event.target[0].value,
     description: event.target[1].value,
   };
+
+  formData.id = mainWrapper.children.length + 1;
 
   fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",
@@ -118,6 +120,9 @@ form.addEventListener("submit", function (event) {
     },
   })
     .then((response) => response.json())
-    .then((json) => console.log(json));
-  postOverlay.classList.remove("active-add");
+    .then((json) => {
+      createPost(formData);
+    });
+  postOverlay.classList.remove("overlay-active");
+  form.reset();
 });
