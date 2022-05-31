@@ -16,6 +16,7 @@
   color: white;
   font-size: 30px;
   text-align: center;
+  font-size: 30px;
 }
 
 .active {
@@ -29,4 +30,41 @@
   font-size: 30px;
   color: red;
   cursor: pointer;
+}
+
+.deletepost {
+  display: none;
+}
+
+.add-post {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-add {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  opacity: 70%;
+  display: none;
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.overlay-active {
+  display: block;
 }
